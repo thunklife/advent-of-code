@@ -1,11 +1,10 @@
 module DayOne where
 
 f :: Char -> Integer
-f x
-  | x == '(' = 1
-  | otherwise = -1
+f '(' = 1
+f _   = -1
 
-solution :: String -> Integer 
+solution :: String -> Integer
 solution = foldr ((+) . f) 0
 
 main :: IO ()
