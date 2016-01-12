@@ -1,11 +1,14 @@
 module DayOne where
 
-f :: Char -> Integer
+import Data.List
+
+f :: Char -> Int
 f '(' = 1
-f _   = -1
+f ')' = -1
+f _   = 0
 
-solution :: String -> Integer
-solution = foldr ((+) . f) 0
+solution1 :: String -> Int
+solution1 = sum . fmap f
 
-main :: IO ()
-main = putStrLn "Puzzle input please" >> solution <$> getLine >>= print
+solution2 :: String -> Int
+solution2 = length . head . filter ((== -1) . sum) . drop 1 . inits . fmap f
