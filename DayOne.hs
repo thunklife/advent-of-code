@@ -2,10 +2,10 @@ module DayOne where
 
 import Data.List
 
-f :: Char -> Int
-f '(' = 1
-f ')' = -1
-f _   = 0
+parenToInt :: Char -> Int
+parenToInt '(' = 1
+parenToInt ')' = -1
+parenToInt _   = 0
 
 solution1 :: String -> Int
 solution1 = sum . fmap f
